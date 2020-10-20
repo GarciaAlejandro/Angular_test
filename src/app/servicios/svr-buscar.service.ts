@@ -28,7 +28,7 @@ export class SrvBusquedaService {
         if (this.cachedValues[query]) {
           resolve(this.cachedValues[query])
         }else{
-          this.http.get('https://api.github.com/search/repositories?q='+query)
+          this.http.get('https://api.github.com/search/users?q='+query)
           .toPromise()
           .then( (response) => {
             resolve (response as InterfaceBusqueda)

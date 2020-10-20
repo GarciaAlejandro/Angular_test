@@ -12,11 +12,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.ServicioBuscarService.busqueda('Hain').then((response) => {
-        alert("Total: " + response.total_count);
-      }, (error) => {
-        alert("Error: " + error.statusText);
-      })
+    this.ServicioBuscarService.busqueda('GarciaAlejandro').then((response) => {
+      // alert("Total: " + response.total_count);
+      // alert(response.items[0].html_url);
+      let pagGithub = response.items[0].html_url;
+      if (window.confirm('¿Desea ir al perfil en Github?')) {
+        window.open('google.com','_blank');
+      };
+    }, (error) => {
+      alert("Error: " + error.statusText);
+    })
   }
   title = 'titulo de la página';
 }
