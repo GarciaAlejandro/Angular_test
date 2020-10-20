@@ -12,16 +12,19 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ServicioBuscarService.busqueda('GarciaAlejandro').then((response) => {
+    let pageGithub = this.ServicioBuscarService.busqueda('GarciaAlejandro').then((response) => {
       // alert("Total: " + response.total_count);
       // alert(response.items[0].html_url);
+      alert("Usuario con mayor Coincidencia: "+ response.items[0].login);
+
       let pagGithub = response.items[0].html_url;
-      if (window.confirm('¿Desea ir al perfil en Github?')) {
-        window.open('google.com','_blank');
+      if (window.confirm('¿Desea ir al perfil en Github? [habilitar ventana emergente]')) {
+        window.open(pagGithub,'_blank');
       };
+      return pageGithub;
     }, (error) => {
       alert("Error: " + error.statusText);
     })
   }
-  title = 'titulo de la página';
+  title = 'Alejandro García Cetina';
 }
