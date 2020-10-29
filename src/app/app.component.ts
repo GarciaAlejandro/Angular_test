@@ -1,10 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { SrvBusquedaService } from './servicios/svr-buscar.service';
-
+import { HttpClient, HttpClientModule} from '@angular/common/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html', // archivo parecido a blade que se enlaza
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+})
+// New
+@NgModule({
+  imports: [
+    HttpClientModule
+  ],
 })
 export class AppComponent implements OnInit {
 
@@ -12,19 +18,14 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    let pageGithub = this.ServicioBuscarService.busqueda('GarciaAlejandro').then((response) => {
-      // alert("Total: " + response.total_count);
-      // alert(response.items[0].html_url);
-      alert("Usuario con mayor Coincidencia: "+ response.items[0].login);
-
-      let pagGithub = response.items[0].html_url;
-      if (window.confirm('¿Desea ir al perfil en Github? [habilitar ventana emergente]')) {
-        window.open(pagGithub,'_blank');
-      };
-      return pageGithub;
+    this.ServicioBuscarService.busqueda('USD').then((response) => {
+      //  En la respuesta devuelve distintas monedas al cambio de petición (USD)
+      // Entre ellas está la moneda MXN por lo que se imprime 
+      // 1 dólar = 21.00 MXN al día 19-OCT-20
+      alert("Tipo de cambio dólar: $"+ response.rates["MXN"]+ " MXN al día Fecha: "+response.date);
     }, (error) => {
       alert("Error: " + error.statusText);
     })
   }
-  title = 'Alejandro García Cetina';
+  title = 'angular-base01';
 }
