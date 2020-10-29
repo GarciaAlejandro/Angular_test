@@ -1,43 +1,33 @@
 export interface InterfaceBusqueda {
-                "rates": Array<
-                    {
-                        "CAD":number,
-                        "HKD":number,
-                        "ISK":number,
-                        "PHP":number,
-                        "DKK":number,
-                        "HUF":number,
-                        "CZK":number,
-                        "GBP":number,
-                        "RON":number,
-                        "SEK":number,
-                        "IDR":number,
-                        "INR":number,
-                        "BRL":number,
-                        "RUB":number,
-                        "HRK":number,
-                        "JPY":number,
-                        "THB":number,
-                        "CHF":number,
-                        "EUR":number,
-                        "MYR":number,
-                        "BGN":number,
-                        "TRY":number,
-                        "CNY":number,
-                        "NOK":number,
-                        "NZD":number,
-                        "ZAR":number,
-                        "USD":number,
-                        "MXN":number,
-                        "SGD":number,
-                        "AUD":number,
-                        "ILS":number,
-                        "KRW":number,
-                        "PLN": number
-                    }
-                >,
-                "base": string,
-                "date": string,
-
-
-}
+    "total_count": number,
+    "incomplete_results": boolean,
+    "items": Array<
+        {
+            "id": number,
+            "name": string,
+            "full_name": string,
+            "owner": {
+                "login": string,
+                "id": number,
+                "avatar_url": string,
+                "gravatar_id": string,
+                "url": string,
+                "html_url": string,
+                "followers_url": string,
+                "following_url": string,
+                "gists_url": string,
+                "starred_url": string,
+                "subscriptions_url": string,
+                "organizations_url": string,
+                "repos_url": string,
+                "events_url": string,
+                "received_events_url": string,
+                "type": string,
+                "site_admin": boolean
+            },
+            "private": boolean,
+            "html_url": string,
+            "description": string,
+        }
+    >
+}​​

@@ -16,9 +16,7 @@ export class CmpBusquedaComponent implements OnInit {
 
   ngOnInit(): void {
     // this.busquedaGit("HolaMundo"); 
-    this.ServicioBuscarService.busqueda('USD').then((response) => {
-      // alert("Tipo de cambio dólar: $"+ response.rates["MXN"]+ " MXN al día Fecha: "+response.date);
-
+    this.ServicioBuscarService.busqueda('Hain').then((response) => {
       this.resultadoBusqueda = response;
     }, (error) => {
       alert("Error: " + error.statusText);
@@ -28,7 +26,6 @@ export class CmpBusquedaComponent implements OnInit {
   // busquedaGit = (query: string) => { }
   busquedaGit = (query: string) => { 
     this.ServicioBuscarService.busqueda(query).then((response) => {
-      // alert("Tipo de cambio dólar: $"+ response.rates["MXN"]+ " MXN al día Fecha: "+response.date);
       this.resultadoBusqueda = response;
     }, (error) => {
       alert("Error: " + error.statusText);

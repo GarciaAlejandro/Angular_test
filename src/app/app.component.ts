@@ -1,6 +1,6 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { SrvBusquedaService } from './servicios/svr-buscar.service';
-import { HttpClient, HttpClientModule} from '@angular/common/http';
+// import { HttpClient, HttpClientModule} from '@angular/common/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html', // archivo parecido a blade que se enlaza
@@ -9,7 +9,7 @@ import { HttpClient, HttpClientModule} from '@angular/common/http';
 // New
 // @NgModule({
 //   imports: [
-//     HttpClientModule
+//     HttpClientModule,
 //   ],
 // })
 export class AppComponent implements OnInit {

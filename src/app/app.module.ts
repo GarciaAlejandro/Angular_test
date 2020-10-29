@@ -12,7 +12,7 @@ import { CmpBusquedaComponent } from './componente/cmp-busqueda/cmp-busqueda.com
 @NgModule({
   declarations: [
     AppComponent,
-    CmpBusquedaComponent
+    CmpBusquedaComponent,
   ],
   imports: [
     BrowserModule,
