@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule} from '@angular/common/http';
 import { SrvBusquedaService } from './servicios/svr-buscar.service';
+import { CmpBusquedaComponent } from './componente/cmp-busqueda/cmp-busqueda.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CmpBusquedaComponent,
   ],
   imports: [
     BrowserModule,

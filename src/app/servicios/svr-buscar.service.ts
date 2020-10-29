@@ -28,7 +28,9 @@ export class SrvBusquedaService {
         if (this.cachedValues[query]) {
           resolve(this.cachedValues[query])
         }else{
-          this.http.get('https://api.github.com/search/users?q='+query)
+          // API que devuelve el tipo de cambio de la moneda que se quiera
+          // BASE = moneda que desea cambiar [ej. USD para el dólar]
+          this.http.get('https://api.github.com/search/repositories?q=' + query)
           .toPromise()
           .then( (response) => {
             resolve (response as InterfaceBusqueda)
@@ -39,6 +41,7 @@ export class SrvBusquedaService {
       })
       return promise;
     }
+
 
 
 }
