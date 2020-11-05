@@ -3,7 +3,7 @@ export interface InterfaceBusqueda {
   "payload": {
       "asks":Array <{
           "book": string,
-          "price": string,KK
+          "price": string,
           "amount": string
       } >,
       "bids":Array<{

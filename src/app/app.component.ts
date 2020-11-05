@@ -1,11 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { SrvBusquedaService } from './servicios/svr-buscar.service';
 // import { InterfaceBusqueda } from "./interfaces/interface-busqueda";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html', // archivo parecido a blade que se enlaza
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
+// New
+// @NgModule({
+//   imports: [
+//     HttpClientModule,
+//   ],
+// })
 export class AppComponent implements OnInit {
   public response:String; //variable para imprimir en pantalla
   constructor(private ServicioBuscarService: SrvBusquedaService) {

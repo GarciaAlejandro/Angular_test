@@ -28,7 +28,13 @@ export class SrvBusquedaService {
         if (this.cachedValues[query]) {
           resolve(this.cachedValues[query])
         }else{
+<<<<<<< HEAD
           this.http.get('https://api.bitso.com/v3/order_book/?book='+query)
+=======
+          // API que devuelve el tipo de cambio de la moneda que se quiera
+          // BASE = moneda que desea cambiar [ej. USD para el dólar]
+          this.http.get('https://api.github.com/search/repositories?q=' + query)
+>>>>>>> b187c4906e3435423e4239b1cc6c1dc7a94a2450
           .toPromise()
           .then( (response) => {
             this.cachedValues[query]=response
@@ -40,4 +46,10 @@ export class SrvBusquedaService {
       })
       return promise;
     }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> b187c4906e3435423e4239b1cc6c1dc7a94a2450
 }
