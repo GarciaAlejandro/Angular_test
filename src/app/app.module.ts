@@ -7,19 +7,26 @@ import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http';
 import { SrvBusquedaService } from './servicios/svr-buscar.service';
 import { CmpBusquedaComponent } from './componente/cmp-busqueda/cmp-busqueda.component';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { PrincipalComponent } from './componente/principal/principal.component';
+import { PagenotfoundComponent } from './componente/pagenotfound/pagenotfound.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CmpBusquedaComponent,
+    PrincipalComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [SrvBusquedaService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

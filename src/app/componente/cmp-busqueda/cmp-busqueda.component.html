@@ -1,15 +1,25 @@
-<p>cmp-busqueda works 2!</p>
-<h3>Resultados: {{resultadoBusqueda.total_count}}</h3>
-<div>
-    <ul>
-        <li *ngFor="let elemento of resultadoBusqueda.items">
-            <a [href]="elemento.html_url">
-                <img [src]="elemento.owner.avatar_url" />
-                <h4>{{elemento.name}}
-                    <small> by {{elemento.owner.login}}</small>
-                </h4>
-            </a>
-            <p> {{elemento.owner.avatar_url}}</p>
+<div align="center">
+    <input name="query" placeholder="Buscar en Github" [(ngModel)]="UserQuery" /> <br><br>
+    <button (click) = "busquedaGit(UserQuery)"> Buscar</button>
+</div>
+<div *ngIf="resultadoBusqueda; else elseBlock">
+    <h3 class="resultado">Resultados: {{resultadoBusqueda.total_count}}</h3>
+    <ul class="lista">
+        <li [ngStyle]="{'background-color': (i%2 === 0) ? '#FFFF': '#3C3C3C'}"  *ngFor="let elemento of resultadoBusqueda.items; index as i;">
+            <div class="card">
+                <a [href]="elemento.html_url" align="center">
+                    <img [src]="elemento.owner.avatar_url" width="100" height="100" align="center" />
+                    <h4 class="information">{{elemento.name}}
+                        <small> by {{elemento.owner.login | uppercase}}</small>
+                    </h4>
+                </a>
+                <p> {{elemento.owner.avatar_url}}</p>
+                <p> {{ elemento.description }}</p>
+                <p> Fecha de Creación : {{  elemento.created_at | date: 'fullDate' }} </p>
+            </div>
         </li>
+        <br>
     </ul>
 </div>
+
+<ng-template #elseBlock>Loading...</ng-template>

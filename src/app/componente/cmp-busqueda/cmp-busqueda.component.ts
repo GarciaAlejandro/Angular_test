@@ -11,7 +11,7 @@ export class CmpBusquedaComponent implements OnInit {
   // Variable de tipo Interface
   // variable : integer
   resultadoBusqueda : InterfaceBusqueda;
-
+  UserQuery : string;
   constructor(private ServicioBuscarService : SrvBusquedaService ) { }
 
   ngOnInit(): void {

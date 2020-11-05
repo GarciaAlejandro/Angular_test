@@ -1,0 +1,22 @@
+#body{
+    background-color: aqua;
+}
+.resultado{
+    color: black;
+}
+.lista{
+    color: white;
+    column-count: 3;
+}
+.information{
+    color: white;
+}
+.card{
+    background-color:#353535;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.9);
+    transition: 0.3s;
+    width: 97%;
+}
+.Cardcontainer {
+    padding: 2px 16px;
+  }
