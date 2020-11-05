@@ -15,10 +15,10 @@ export class SrvBusquedaService {
 
   // crear variables
   cachedValues: Array<{
-    [query: string]: InterfaceBusqueda // Hacer referencia a la interface 
+    [query: string]: InterfaceBusqueda // Hacer referencia a la interface
   }> = [];
   // Constructor de la clase
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.http = http
   }
   // Funciones
@@ -28,9 +28,10 @@ export class SrvBusquedaService {
         if (this.cachedValues[query]) {
           resolve(this.cachedValues[query])
         }else{
-          this.http.get('https://api.github.com/search/users?q='+query)
+          this.http.get('https://api.bitso.com/v3/order_book/?book='+query)
           .toPromise()
           .then( (response) => {
+            this.cachedValues[query]=response
             resolve (response as InterfaceBusqueda)
           },(error) =>{
             reject(error);
@@ -39,6 +40,4 @@ export class SrvBusquedaService {
       })
       return promise;
     }
-
-
 }
